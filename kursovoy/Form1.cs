@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,45 @@ using System.Windows.Forms;
 
 namespace kursovoy
 {
-    public partial class Form1 : Form
+    public partial class Авторизация : Form
     {
-        public Form1()
+        public Авторизация()
         {
             InitializeComponent();
+        }
+
+
+        private void Авторизация_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            String loginUser = loginText.Text;
+            String passUser = passText.Text;
+
+            DB db = new DB();
+
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `worker` WHERE `login` = @uL and `password` = @uP", db.getConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+            command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                adminScreen adm= new adminScreen();
+                adm.Show();
+            }
+            else {
+                MessageBox.Show("Всё плохо");
+            }
         }
     }
 }
