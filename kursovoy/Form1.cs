@@ -45,10 +45,12 @@ namespace kursovoy
             if (table.Rows.Count > 0)
             {
                 if(loginUser == "admin") { 
-                adminScreen adm= new adminScreen();
+                adminScreen adm = new adminScreen();
                 adm.Show();
-                    }
+                    Hide();
+                }
                 else MessageBox.Show("Обычный польз смог зайти");
+                Hide();
                 //{
                 //    workForm.show;
                 //}
