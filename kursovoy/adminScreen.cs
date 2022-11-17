@@ -26,11 +26,11 @@ namespace kursovoy
         private void adminScreen_Load(object sender, EventArgs e)
         {
             //Подключение к бд и создангие команды
-            MySqlCommand MysqlCmd = new MySqlCommand();
-            MysqlCmd.Connection = db.getConnection();
-            MysqlCmd.CommandType = CommandType.Text;
-            MysqlCmd.CommandText = "Select * from worker";
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(MysqlCmd);
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = db.getConnection();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Select * from worker";
+            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
             //Заполнение грида
             DataTable dtRecord = new DataTable();
             sqlDataAdap.Fill(dtRecord);
@@ -57,6 +57,11 @@ namespace kursovoy
             //Отрктыь эксель
             ExcelApp.Visible = true;
             ExcelApp.UserControl = true;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

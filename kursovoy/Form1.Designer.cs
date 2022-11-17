@@ -36,42 +36,46 @@
             // 
             // login
             // 
-            this.login.Location = new System.Drawing.Point(168, 325);
+            this.login.BackColor = System.Drawing.SystemColors.GrayText;
+            this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.login.Location = new System.Drawing.Point(101, 280);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(75, 23);
+            this.login.Size = new System.Drawing.Size(173, 56);
             this.login.TabIndex = 0;
             this.login.Text = "Вход";
-            this.login.UseVisualStyleBackColor = true;
+            this.login.UseVisualStyleBackColor = false;
             this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 115);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.25F);
+            this.label1.Location = new System.Drawing.Point(118, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(134, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "Авторизация";
             // 
             // loginText
             // 
-            this.loginText.Location = new System.Drawing.Point(152, 171);
+            this.loginText.Location = new System.Drawing.Point(101, 141);
             this.loginText.Name = "loginText";
-            this.loginText.Size = new System.Drawing.Size(100, 20);
+            this.loginText.Size = new System.Drawing.Size(173, 20);
             this.loginText.TabIndex = 2;
             // 
             // passText
             // 
-            this.passText.Location = new System.Drawing.Point(152, 246);
+            this.passText.Location = new System.Drawing.Point(101, 211);
             this.passText.Name = "passText";
-            this.passText.Size = new System.Drawing.Size(100, 20);
+            this.passText.Size = new System.Drawing.Size(173, 20);
             this.passText.TabIndex = 3;
             // 
             // Авторизация
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 450);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(365, 413);
             this.Controls.Add(this.passText);
             this.Controls.Add(this.loginText);
             this.Controls.Add(this.label1);
