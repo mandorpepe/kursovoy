@@ -11,7 +11,8 @@ namespace kursovoy
 {
 class DB
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=kursovoy");
+        MySqlConnection connection = new MySqlConnection("server=web.edu;port=3306;username=19056;password=jynixo;database=19056_kursovoy");
+        //MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=kursovoy");
     
         public void openConnection()
         {
