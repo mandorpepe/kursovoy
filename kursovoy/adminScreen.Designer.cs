@@ -62,6 +62,7 @@
             this.button2.Size = new System.Drawing.Size(136, 55);
             this.button2.TabIndex = 2;
             this.button2.Text = "Зарегестрировать нового пользователя";
+
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

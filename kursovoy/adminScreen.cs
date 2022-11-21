@@ -68,6 +68,7 @@ namespace kursovoy
         {
             addUser adduser = new addUser();
             adduser.Show();
+
             Hide();
         }
     }
