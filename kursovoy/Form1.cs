@@ -44,16 +44,18 @@ namespace kursovoy
 
             if (table.Rows.Count > 0)
             {
-                if(loginUser == "admin") { 
-                adminScreen adm = new adminScreen();
-                adm.Show();
+                if (loginUser == "admin")
+                {
+                    adminScreen adm = new adminScreen();
+                    adm.Show();
                     Hide();
                 }
-                else MessageBox.Show("Обычный польз смог зайти");
-                Hide();
-                //{
-                //    workForm.show;
-                //}
+                else
+                {
+                    WorkerEntScr worker = new WorkerEntScr();
+                    worker.Show();
+                    Hide();
+                }
             }
             else {
                 MessageBox.Show("Всё плохо");

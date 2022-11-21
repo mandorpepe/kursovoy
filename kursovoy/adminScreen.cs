@@ -66,8 +66,9 @@ namespace kursovoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            userAdding addus = new userAdding();
-            addus.Show();
+            addUser adduser = new addUser();
+            adduser.Show();
+
             Hide();
         }
     }
