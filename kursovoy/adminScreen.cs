@@ -70,5 +70,12 @@ namespace kursovoy
             adduser.Show();
             Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Авторизация auth = new Авторизация();
+            auth.Show();
+            Hide();
+        }
     }
 }
