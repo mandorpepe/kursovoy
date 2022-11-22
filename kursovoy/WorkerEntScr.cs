@@ -24,7 +24,9 @@ namespace kursovoy
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            addClient client= new addClient();
+            client.Show();
+            Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)

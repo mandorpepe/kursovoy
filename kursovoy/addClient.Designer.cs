@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.fioText = new System.Windows.Forms.TextBox();
+            this.addressText = new System.Windows.Forms.TextBox();
+            this.phoneText = new System.Windows.Forms.TextBox();
+            this.passportText = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,37 +42,37 @@
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // fioText
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.fioText.Location = new System.Drawing.Point(20, 91);
+            this.fioText.Name = "fioText";
+            this.fioText.Size = new System.Drawing.Size(100, 20);
+            this.fioText.TabIndex = 0;
             // 
-            // textBox2
+            // addressText
             // 
-            this.textBox2.Location = new System.Drawing.Point(221, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.addressText.Location = new System.Drawing.Point(162, 91);
+            this.addressText.Name = "addressText";
+            this.addressText.Size = new System.Drawing.Size(100, 20);
+            this.addressText.TabIndex = 1;
             // 
-            // textBox3
+            // phoneText
             // 
-            this.textBox3.Location = new System.Drawing.Point(385, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.phoneText.Location = new System.Drawing.Point(311, 91);
+            this.phoneText.Name = "phoneText";
+            this.phoneText.Size = new System.Drawing.Size(100, 20);
+            this.phoneText.TabIndex = 2;
             // 
-            // textBox4
+            // passportText
             // 
-            this.textBox4.Location = new System.Drawing.Point(56, 173);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.passportText.Location = new System.Drawing.Point(20, 173);
+            this.passportText.Name = "passportText";
+            this.passportText.Size = new System.Drawing.Size(100, 20);
+            this.passportText.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(221, 173);
+            this.dateTimePicker1.Location = new System.Drawing.Point(260, 173);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.Location = new System.Drawing.Point(56, 53);
+            this.label1.Location = new System.Drawing.Point(15, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 26);
             this.label1.TabIndex = 7;
@@ -111,7 +111,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label3.Location = new System.Drawing.Point(216, 53);
+            this.label3.Location = new System.Drawing.Point(157, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 26);
             this.label3.TabIndex = 9;
@@ -121,7 +121,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label4.Location = new System.Drawing.Point(381, 53);
+            this.label4.Location = new System.Drawing.Point(307, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 26);
             this.label4.TabIndex = 10;
@@ -145,6 +145,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addClient
             // 
@@ -159,10 +160,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passportText);
+            this.Controls.Add(this.phoneText);
+            this.Controls.Add(this.addressText);
+            this.Controls.Add(this.fioText);
             this.Name = "addClient";
             this.Text = "addClient";
             this.ResumeLayout(false);
@@ -172,10 +173,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox fioText;
+        private System.Windows.Forms.TextBox addressText;
+        private System.Windows.Forms.TextBox phoneText;
+        private System.Windows.Forms.TextBox passportText;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;

@@ -43,15 +43,15 @@ namespace kursovoy
             command.Parameters.Add("@phone", MySqlDbType.Int32).Value = phoneUser;
             command.Parameters.Add("@pos", MySqlDbType.Int32).Value = posUser;
 
-            //try { 
+            try { 
             adapter.SelectCommand = command;
             adapter.Fill(table);
                 MessageBox.Show("Пользователь  зарегестрирован");
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Такой логин уже существует");
-            //}
+            }
+            catch
+            {
+                MessageBox.Show("Такой логин уже существует");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
