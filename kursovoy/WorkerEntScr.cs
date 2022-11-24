@@ -19,7 +19,9 @@ namespace kursovoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            createOrd ord = new createOrd();
+            ord.Show();
+            Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)

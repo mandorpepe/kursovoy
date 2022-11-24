@@ -1,5 +1,5 @@
 ﻿namespace kursovoy
-{
+    {
     partial class addClient
     {
         /// <summary>

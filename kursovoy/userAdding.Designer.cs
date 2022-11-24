@@ -194,6 +194,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "userAdding";
             this.Text = "userAdding";
+            this.Load += new System.EventHandler(this.userAdding_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

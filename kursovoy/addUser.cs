@@ -60,5 +60,10 @@ namespace kursovoy
             adm.Show();
             Hide();
         }
+
+        private void addUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
