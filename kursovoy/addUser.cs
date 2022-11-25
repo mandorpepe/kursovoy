@@ -13,6 +13,8 @@ namespace kursovoy
 {
     public partial class addUser : Form
     {
+
+        adminScreen adminScreen = new adminScreen();
         public addUser()
         {
             InitializeComponent();
@@ -56,9 +58,10 @@ namespace kursovoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            adminScreen adm = new adminScreen();
-            adm.Show();
-            Hide();
+
+                adminScreen.Show();
+                Hide();
+
         }
 
         private void addUser_Load(object sender, EventArgs e)

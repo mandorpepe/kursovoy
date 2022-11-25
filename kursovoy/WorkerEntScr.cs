@@ -12,6 +12,8 @@ namespace kursovoy
 {
     public partial class WorkerEntScr : Form
     {
+        adminScreen adminScreen = new adminScreen();
+        
         public WorkerEntScr()
         {
             InitializeComponent();
@@ -19,6 +21,7 @@ namespace kursovoy
 
         private void button2_Click(object sender, EventArgs e)
         {
+            adminScreen.sos = "Раб";
             createOrd ord = new createOrd();
             ord.Show();
             Hide();
@@ -26,6 +29,7 @@ namespace kursovoy
 
         private void button3_Click(object sender, EventArgs e)
         {
+            adminScreen.sos = "Раб"; 
             addClient client= new addClient();
             client.Show();
             Hide();
@@ -36,6 +40,11 @@ namespace kursovoy
             Авторизация login = new Авторизация();
             login.Show();
             Hide(); 
+        }
+
+        private void WorkerEntScr_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

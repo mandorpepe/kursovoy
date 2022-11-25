@@ -84,6 +84,7 @@
             this.Controls.Add(this.button1);
             this.Name = "WorkerEntScr";
             this.Text = "Окно после входа работником";
+            this.Load += new System.EventHandler(this.WorkerEntScr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
