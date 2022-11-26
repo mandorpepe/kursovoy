@@ -74,16 +74,14 @@ namespace kursovoy
 
             addUser adduser = new addUser();
             createOrd ord = new createOrd();
+            addPos pos = new addPos();
 
             DataTable table = new DataTable();
             MySqlCommand command = new MySqlCommand();
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
-            int rowindex = dataGridView1.CurrentCell.RowIndex;
-            int columnindex = dataGridView1.CurrentCell.ColumnIndex;
-            int need = (int)dataGridView1.Rows[rowindex].Cells[columnindex].Value;
-            command.Parameters.Add("@id", MySqlDbType.Int32).Value = need;
+
             switch (seltab)
             {
                 case "Клиенты":
