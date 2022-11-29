@@ -27,7 +27,6 @@ namespace kursovoy
             var dtpDate2 = dateTimePicker2.Value.Date.ToString("yyyy-MM-dd");
             String pay = textBox1.Text;
             int hotel = comboBox1.SelectedIndex + 1;
-            int worker = comboBox2.SelectedIndex + 1;
             int client = comboBox3.SelectedIndex + 1;
 
             DataTable table = new DataTable();
@@ -36,7 +35,7 @@ namespace kursovoy
             MySqlCommand command = new MySqlCommand("INSERT INTO `trip` (`id_book`, `date_start`, `date_end`, `payment`, `id_hotel`, `id_worker`, `id_clients`)values (null,@dstart,@dend,@pay,@hotel,@worker,@client)", db.getConnection());
             
             command.Parameters.Add("@pay", MySqlDbType.Float).Value = pay;
-            command.Parameters.Add("@worker", MySqlDbType.Int32).Value = worker;
+            //command.Parameters.Add("@worker", MySqlDbType.Int32).Value = worker;
             command.Parameters.Add("@client", MySqlDbType.VarChar).Value = client;
             command.Parameters.Add("@hotel", MySqlDbType.Int32).Value = hotel;
             command.Parameters.Add("@dstart", MySqlDbType.Date).Value = dtpDate;
@@ -71,11 +70,11 @@ namespace kursovoy
             db.openConnection();
             command.CommandText = "Select fio from worker";
             DR = command.ExecuteReader();
-            while (DR.Read())
-            {
-                comboBox2.Items.Add(DR[0]);
+            //while (DR.Read())
+            //{
+            //    comboBox2.Items.Add(DR[0]);
 
-            }
+            //}
             db.closeConnection();
             db.openConnection();
             command.CommandText = "Select hotel_name from hotel";

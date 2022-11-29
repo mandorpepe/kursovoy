@@ -29,6 +29,8 @@ namespace kursovoy
 
         private void adminScreen_Load(object sender, EventArgs e)
         {
+            Авторизация ent = new Авторизация();
+            label1.Text = ent.userEntId;
             //Подключение к бд и создангие команды
             MySqlCommand command = new MySqlCommand();
             command.Connection = db.getConnection();

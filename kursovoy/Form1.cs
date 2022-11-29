@@ -13,6 +13,9 @@ namespace kursovoy
 {
     public partial class Авторизация : Form
     {
+        public string ads;
+        public String userEnt;
+        public string userEntId;
         public Авторизация()
         {
             InitializeComponent();
@@ -44,17 +47,22 @@ namespace kursovoy
 
             if (table.Rows.Count > 0)
             {
+
+                userEntId = table.Rows[0][0].ToString();
+
                 if (loginUser == "admin")
                 {
+                    userEnt = "admin";
                     adminScreen adm = new adminScreen();
                     adm.Show();
-                    Hide();
+                    label1.Text = userEntId;
                 }
                 else
                 {
+                    userEnt = "Worker";
                     WorkerEntScr worker = new WorkerEntScr();
                     worker.Show();
-                    Hide();
+                    label1.Text = userEntId;
                 }
             }
             else {
