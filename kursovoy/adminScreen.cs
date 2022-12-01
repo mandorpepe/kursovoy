@@ -20,8 +20,12 @@ namespace kursovoy
     {
         String seltab;
         public string sos;
+        DataTable dtRecord = new DataTable();
+        DataSet dtRecord1 = new DataSet();
+        MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter();
         //Подключение файла с подключением к бд
         DB db = new DB();
+
         public adminScreen()
         {
             InitializeComponent();
@@ -186,13 +190,21 @@ namespace kursovoy
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
             //Заполнение грида
             DataTable dtRecord = new DataTable();
-            sqlDataAdap.Fill(dtRecord);
-            dataGridView1.DataSource = dtRecord;
+            sqlDataAdap.Fill(dtRecord1);
+            dataGridView1.DataSource = dtRecord1.Tables[0];
             seltab = "Работник";
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            MySqlCommandBuilder builder = new MySqlCommandBuilder(sqlDataAdap);
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "Select * from worker";
+            sqlDataAdap.SelectCommand = command;
+            sqlDataAdap.SelectCommand.Connection = db.getConnection();
+            builder.GetUpdateCommand();
+            sqlDataAdap.Update(dtRecord1);
 
         }
 
