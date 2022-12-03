@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.OData.Edm.Library;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,13 @@ namespace kursovoy
     public partial class Авторизация : Form
     {
         public string ads;
-        public String userEnt;
+        public string userEnt;
         public string userEntId;
         public Авторизация()
         {
             InitializeComponent();
+
+            
         }
 
 
@@ -52,17 +55,17 @@ namespace kursovoy
 
                 if (loginUser == "admin")
                 {
-                    userEnt = "admin";
+                    UserEnt.Value = "adm";
                     adminScreen adm = new adminScreen();
                     adm.Show();
                     label1.Text = userEntId;
                 }
                 else
                 {
-                    userEnt = "Worker";
+                    UserEnt.Value = "Worker";
                     WorkerEntScr worker = new WorkerEntScr();
                     worker.Show();
-                    label1.Text = userEntId;
+                    label1.Text = userEnt;
                 }
             }
             else {

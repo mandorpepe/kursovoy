@@ -19,4 +19,8 @@ namespace kursovoy
             Application.Run(new Авторизация());
         }
     }
+    static class UserEnt
+    {
+        public static string Value { get; set; }
+    }
 }

@@ -50,9 +50,24 @@ namespace kursovoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            WorkerEntScr worker = new WorkerEntScr();
-            worker.Show();
-            Hide();
+            Авторизация ent = new Авторизация();
+            if (UserEnt.Value == "Worker")
+            {
+                WorkerEntScr worker = new WorkerEntScr();
+                worker.Show();
+                Hide();
+            }
+            else 
+            { 
+                adminScreen adm = new adminScreen();
+                adm.Show();
+                Hide();
+            }
+        }
+
+        private void addClient_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

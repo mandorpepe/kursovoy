@@ -18,11 +18,14 @@ namespace kursovoy
 {
     public partial class adminScreen : Form
     {
+        public MySqlCommand command = new MySqlCommand();
         String seltab;
         public string sos;
         DataTable dtRecord = new DataTable();
         DataSet dtRecord1 = new DataSet();
         MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter();
+        MySqlCommandBuilder builder = new MySqlCommandBuilder();
+        
         //Подключение файла с подключением к бд
         DB db = new DB();
 
@@ -35,16 +38,7 @@ namespace kursovoy
         {
             Авторизация ent = new Авторизация();
             label1.Text = ent.userEntId;
-            //Подключение к бд и создангие команды
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = db.getConnection();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "Select * from worker";
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
-            //Заполнение грида
-            DataTable dtRecord = new DataTable();
-            sqlDataAdap.Fill(dtRecord);
-            dataGridView1.DataSource = dtRecord;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,7 +77,7 @@ namespace kursovoy
             addPos pos = new addPos();
 
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand();
+            
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
@@ -92,7 +86,8 @@ namespace kursovoy
             {
                 case "Клиенты":
                     
-
+                    addClient addClient= new addClient();
+                    addClient.Show();
                     break;
                 case "Отель":
                     
@@ -127,13 +122,15 @@ namespace kursovoy
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MySqlCommand command = new MySqlCommand();
+            
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from clients";
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
             //Заполнение грида
-            DataTable dtRecord = new DataTable();
+            dtRecord.Columns.Clear();
+            dtRecord.Rows.Clear();
+            dtRecord.Clear();
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
             seltab = "Клиенты";
@@ -141,13 +138,15 @@ namespace kursovoy
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MySqlCommand command = new MySqlCommand();
+           
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from hotel";
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
             //Заполнение грида
-            DataTable dtRecord = new DataTable();
+            dtRecord.Columns.Clear();
+            dtRecord.Rows.Clear();
+            dtRecord.Clear();
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
             seltab = "Отель";
@@ -155,27 +154,43 @@ namespace kursovoy
 
         private void button6_Click(object sender, EventArgs e)
         {
-            MySqlCommand command = new MySqlCommand();
+
+
+            //dataGridView1.DataSource = null;
+            //dtRecord.Clear();
+            //
+            //dtRecord.Clear();
+            //dataGridView1.Update();
+            
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from position";
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
+            sqlDataAdap.SelectCommand = command;
             //Заполнение грида
-            DataTable dtRecord = new DataTable();
+            label1.Text = command.CommandText.ToString();
+
+            dtRecord.Rows.Clear();
+            dtRecord.Columns.Clear();
+            dtRecord.Clear();
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
+
             seltab = "Должность";
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            MySqlCommand command = new MySqlCommand();
+            dataGridView1.DataSource = null;
+            dtRecord.Clear();
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from trip";
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
+            sqlDataAdap.SelectCommand = command;
             //Заполнение грида
-            DataTable dtRecord = new DataTable();
+            dtRecord.Columns.Clear();
+            dtRecord.Rows.Clear();
+            dtRecord.Clear();
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
             seltab = "Путёвка";
@@ -183,28 +198,38 @@ namespace kursovoy
 
         private void button8_Click(object sender, EventArgs e)
         {
-            MySqlCommand command = new MySqlCommand();
+
+            //dataGridView1.DataSource = null;
+            //
+            //
+            
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from worker";
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
+            sqlDataAdap.SelectCommand = command;
             //Заполнение грида
-            DataTable dtRecord = new DataTable();
-            sqlDataAdap.Fill(dtRecord1);
-            dataGridView1.DataSource = dtRecord1.Tables[0];
+            label1.Text = command.CommandText.ToString();
+            dtRecord.Columns.Clear();
+            dtRecord.Rows.Clear();
+            dtRecord.Clear();
+            sqlDataAdap.Fill(dtRecord);
+            dataGridView1.DataSource = dtRecord;
+            
             seltab = "Работник";
+            
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            MySqlCommandBuilder builder = new MySqlCommandBuilder(sqlDataAdap);
+            
             db.openConnection();
-            MySqlCommand command = new MySqlCommand();
-            command.CommandText = "Select * from worker";
+            var conn = db.getConnection();
             sqlDataAdap.SelectCommand = command;
-            sqlDataAdap.SelectCommand.Connection = db.getConnection();
+            sqlDataAdap.SelectCommand.Connection = conn;
+            builder.Dispose();
+            builder.DataAdapter = sqlDataAdap;
             builder.GetUpdateCommand();
-            sqlDataAdap.Update(dtRecord1);
+            sqlDataAdap.Update(dtRecord);
 
         }
 
@@ -212,7 +237,7 @@ namespace kursovoy
         {
 
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand();
+
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
@@ -220,38 +245,44 @@ namespace kursovoy
             int columnindex = dataGridView1.CurrentCell.ColumnIndex;
             int need = (int)dataGridView1.Rows[rowindex].Cells[columnindex].Value;
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = need;
-            switch (seltab)
+            try
             {
-                case "Клиенты":
-                    command.CommandText = "delete from clients where id_clients = @id";
-                    adapter.SelectCommand = command;
-                    adapter.Fill(table);
-                    MessageBox.Show("Удалено успешно");
-                    break;
-                case "Отель":
-                    command.CommandText = "delete from hotel where id_hotel = @id";
-                    adapter.SelectCommand = command;
-                    adapter.Fill(table);
-                    MessageBox.Show("Удалено успешно");
-                    break;
-                case "Должность":
-                    command.CommandText = "delete from position where id_position = @id";
-                    adapter.SelectCommand = command;
-                    adapter.Fill(table);
-                    MessageBox.Show("Удалено успешно");
-                    break;
-                case "Путёвка":
-                    command.CommandText = "delete from trip where id_book = @id";
-                    adapter.SelectCommand = command;
-                    adapter.Fill(table);
-                    MessageBox.Show("Удалено успешно");
-                    break;
-                case "Работник":
-                    command.CommandText = "delete from worker where id_worker = @id";
-                    adapter.SelectCommand = command;
-                    adapter.Fill(table);
-                    MessageBox.Show("Удалено успешно");
-                    break;
+                switch (seltab)
+                {
+                    case "Клиенты":
+                        command.CommandText = "delete from clients where id_clients = @id";
+                        adapter.SelectCommand = command;
+                        adapter.Fill(table);
+                        MessageBox.Show("Удалено успешно");
+                        break;
+                    case "Отель":
+                        command.CommandText = "delete from hotel where id_hotel = @id";
+                        adapter.SelectCommand = command;
+                        adapter.Fill(table);
+                        MessageBox.Show("Удалено успешно");
+                        break;
+                    case "Должность":
+                        command.CommandText = "delete from position where id_position = @id";
+                        adapter.SelectCommand = command;
+                        adapter.Fill(table);
+                        MessageBox.Show("Удалено успешно");
+                        break;
+                    case "Путёвка":
+                        command.CommandText = "delete from trip where id_book = @id";
+                        adapter.SelectCommand = command;
+                        adapter.Fill(table);
+                        MessageBox.Show("Удалено успешно");
+                        break;
+                    case "Работник":
+                        command.CommandText = "delete from worker where id_worker = @id";
+                        adapter.SelectCommand = command;
+                        adapter.Fill(table);
+                        MessageBox.Show("Удалено успешно");
+                        break;
+                }
+            }
+            catch  {MessageBox.Show("Что-то пошло не так, выберите поле id и повторите снова"); 
+        
             }
         }
     }

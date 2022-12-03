@@ -13,8 +13,8 @@ namespace kursovoy
 {
     public partial class WorkerEntScr : Form
     {
-         //public string userEntId;
-        adminScreen adminScreen = new adminScreen();
+        //public string userEntId;
+        Авторизация ent = new Авторизация();
         
         public WorkerEntScr()
         {
@@ -23,7 +23,7 @@ namespace kursovoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            adminScreen.sos = "Раб";
+            UserEnt.Value = "Worker";
             createOrd ord = new createOrd();
             ord.Show();
             Hide();
@@ -31,7 +31,7 @@ namespace kursovoy
 
         private void button3_Click(object sender, EventArgs e)
         {
-            adminScreen.sos = "Раб"; 
+            UserEnt.Value = "Worker"; 
             addClient client= new addClient();
             client.Show();
             Hide();
@@ -52,7 +52,7 @@ namespace kursovoy
             //userEntId = table.Rows[0][0].ToString();
             Авторизация ent = new Авторизация();
             String ddd = ent.userEntId;
-            //label1.Text = ent.table.Rows[0][0].ToString();
+            label1.Text = UserEnt.Value;
         }
     }
 }

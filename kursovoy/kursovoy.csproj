@@ -256,6 +256,12 @@
     <Compile Include="addClient.Designer.cs">
       <DependentUpon>addClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="addHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addHotel.Designer.cs">
+      <DependentUpon>addHotel.cs</DependentUpon>
+    </Compile>
     <Compile Include="addPos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,9 @@
     </Compile>
     <EmbeddedResource Include="addClient.resx">
       <DependentUpon>addClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addHotel.resx">
+      <DependentUpon>addHotel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="addPos.resx">
       <DependentUpon>addPos.cs</DependentUpon>
