@@ -48,48 +48,49 @@
             // 
             // fioText
             // 
-            this.fioText.Location = new System.Drawing.Point(87, 87);
-            this.fioText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fioText.Location = new System.Drawing.Point(31, 58);
+            this.fioText.Margin = new System.Windows.Forms.Padding(4);
+            this.fioText.Multiline = true;
             this.fioText.Name = "fioText";
-            this.fioText.Size = new System.Drawing.Size(132, 22);
+            this.fioText.Size = new System.Drawing.Size(132, 65);
             this.fioText.TabIndex = 0;
             // 
             // ageText
             // 
-            this.ageText.Location = new System.Drawing.Point(263, 87);
-            this.ageText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ageText.Location = new System.Drawing.Point(206, 62);
+            this.ageText.Margin = new System.Windows.Forms.Padding(4);
             this.ageText.Name = "ageText";
             this.ageText.Size = new System.Drawing.Size(132, 22);
             this.ageText.TabIndex = 1;
             // 
             // phoneText
             // 
-            this.phoneText.Location = new System.Drawing.Point(427, 87);
-            this.phoneText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneText.Location = new System.Drawing.Point(370, 62);
+            this.phoneText.Margin = new System.Windows.Forms.Padding(4);
             this.phoneText.Name = "phoneText";
             this.phoneText.Size = new System.Drawing.Size(132, 22);
             this.phoneText.TabIndex = 2;
             // 
             // passportText
             // 
-            this.passportText.Location = new System.Drawing.Point(87, 194);
-            this.passportText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passportText.Location = new System.Drawing.Point(31, 186);
+            this.passportText.Margin = new System.Windows.Forms.Padding(4);
             this.passportText.Name = "passportText";
             this.passportText.Size = new System.Drawing.Size(132, 22);
             this.passportText.TabIndex = 3;
             // 
             // regloginText
             // 
-            this.regloginText.Location = new System.Drawing.Point(263, 194);
-            this.regloginText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.regloginText.Location = new System.Drawing.Point(205, 186);
+            this.regloginText.Margin = new System.Windows.Forms.Padding(4);
             this.regloginText.Name = "regloginText";
             this.regloginText.Size = new System.Drawing.Size(132, 22);
             this.regloginText.TabIndex = 4;
             // 
             // passwordText
             // 
-            this.passwordText.Location = new System.Drawing.Point(428, 194);
-            this.passwordText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordText.Location = new System.Drawing.Point(370, 186);
+            this.passwordText.Margin = new System.Windows.Forms.Padding(4);
             this.passwordText.Name = "passwordText";
             this.passwordText.Size = new System.Drawing.Size(132, 22);
             this.passwordText.TabIndex = 5;
@@ -97,8 +98,8 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(668, 110);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(557, 85);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 6;
@@ -106,20 +107,21 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(643, 302);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.Location = new System.Drawing.Point(550, 273);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 33);
+            this.button1.Size = new System.Drawing.Size(188, 80);
             this.button1.TabIndex = 7;
             this.button1.Text = "Зарегестрировать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.Location = new System.Drawing.Point(80, 47);
+            this.label1.Location = new System.Drawing.Point(23, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 32);
@@ -130,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label2.Location = new System.Drawing.Point(256, 47);
+            this.label2.Location = new System.Drawing.Point(199, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 32);
@@ -141,7 +143,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label3.Location = new System.Drawing.Point(421, 47);
+            this.label3.Location = new System.Drawing.Point(364, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 32);
@@ -152,7 +154,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label4.Location = new System.Drawing.Point(80, 133);
+            this.label4.Location = new System.Drawing.Point(24, 127);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 32);
@@ -163,7 +165,7 @@
             // 
             this.loginText.AutoSize = true;
             this.loginText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.loginText.Location = new System.Drawing.Point(256, 133);
+            this.loginText.Location = new System.Drawing.Point(200, 127);
             this.loginText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginText.Name = "loginText";
             this.loginText.Size = new System.Drawing.Size(93, 32);
@@ -174,7 +176,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label6.Location = new System.Drawing.Point(421, 133);
+            this.label6.Location = new System.Drawing.Point(364, 127);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 32);
@@ -185,7 +187,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label5.Location = new System.Drawing.Point(661, 47);
+            this.label5.Location = new System.Drawing.Point(550, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 32);
@@ -194,20 +196,22 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(87, 302);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button2.Location = new System.Drawing.Point(29, 273);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 33);
+            this.button2.Size = new System.Drawing.Size(133, 80);
             this.button2.TabIndex = 15;
             this.button2.Text = "Вернуться";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // addUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 401);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(751, 391);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -224,9 +228,9 @@
             this.Controls.Add(this.phoneText);
             this.Controls.Add(this.ageText);
             this.Controls.Add(this.fioText);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "addUser";
-            this.Text = "addUser";
+            this.Text = "ИС Турагенство | Добавить работника";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.addUser_FormClosed);
             this.Load += new System.EventHandler(this.addUser_Load);
             this.ResumeLayout(false);

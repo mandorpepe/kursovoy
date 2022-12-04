@@ -57,13 +57,15 @@ namespace kursovoy
                     UserEnt.Value = "adm";
                     adminScreen adm = new adminScreen();
                     adm.Show();
-                    
+                    Hide();
+
                 }
                 else
                 {
                     UserEnt.Value = "Worker";
                     WorkerEntScr worker = new WorkerEntScr();
                     worker.Show();
+                    Hide();
                     
                 }
             }

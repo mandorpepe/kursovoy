@@ -42,13 +42,14 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.button2.Location = new System.Drawing.Point(35, 341);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 87);
             this.button2.TabIndex = 24;
             this.button2.Text = "Назад";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
@@ -77,7 +78,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label3.Location = new System.Drawing.Point(345, 37);
+            this.label3.Location = new System.Drawing.Point(345, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 32);
@@ -88,7 +89,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.Location = new System.Drawing.Point(29, 37);
+            this.label1.Location = new System.Drawing.Point(29, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(293, 32);
@@ -97,13 +98,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(626, 341);
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.Location = new System.Drawing.Point(400, 341);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 87);
             this.button1.TabIndex = 18;
             this.button1.Text = "Зарегистрировать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dutyText
@@ -126,25 +128,28 @@
             // 
             // payText
             // 
-            this.payText.Location = new System.Drawing.Point(354, 93);
+            this.payText.Location = new System.Drawing.Point(351, 73);
             this.payText.Margin = new System.Windows.Forms.Padding(4);
+            this.payText.Multiline = true;
             this.payText.Name = "payText";
-            this.payText.Size = new System.Drawing.Size(132, 22);
+            this.payText.Size = new System.Drawing.Size(135, 23);
             this.payText.TabIndex = 14;
             // 
             // posText
             // 
-            this.posText.Location = new System.Drawing.Point(35, 93);
+            this.posText.Location = new System.Drawing.Point(35, 73);
             this.posText.Margin = new System.Windows.Forms.Padding(4);
+            this.posText.Multiline = true;
             this.posText.Name = "posText";
-            this.posText.Size = new System.Drawing.Size(132, 22);
+            this.posText.Size = new System.Drawing.Size(187, 42);
             this.posText.TabIndex = 13;
             // 
             // addPos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(582, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -156,7 +161,7 @@
             this.Controls.Add(this.payText);
             this.Controls.Add(this.posText);
             this.Name = "addPos";
-            this.Text = "addPos";
+            this.Text = "ИС Турагенство | Добавить должность";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.addPos_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

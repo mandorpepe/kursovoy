@@ -19,15 +19,13 @@ namespace kursovoy
     public partial class adminScreen : Form
     {
         public MySqlCommand command = new MySqlCommand();
-        String seltab;
-        public string sos;
         DataTable dtRecord = new DataTable();
-        DataSet dtRecord1 = new DataSet();
         MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter();
         MySqlCommandBuilder builder = new MySqlCommandBuilder();
 
-        
-        //Подключение файла с подключением к бд
+        String seltab;
+        public string sos;
+
         DB db = new DB();
 
         public adminScreen()
@@ -38,8 +36,6 @@ namespace kursovoy
         private void adminScreen_Load(object sender, EventArgs e)
         {
             Авторизация ent = new Авторизация();
-            label1.Text = UserEntId.Value.ToString();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,17 +72,15 @@ namespace kursovoy
             addUser adduser = new addUser();
             createOrd ord = new createOrd();
             addPos pos = new addPos();
-
             DataTable table = new DataTable();
-            
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
 
             switch (seltab)
             {
                 case "Клиенты":
-                    
                     addClient addClient= new addClient();
                     addClient.Show();
                     break;
@@ -99,18 +93,12 @@ namespace kursovoy
                     pos.Show();
                     break;
                 case "Путёвка":
-                    
                     ord.Show();
                     break;
                 case "Работник":
-                    
                     adduser.Show();
-                    break;
-                    
+                    break;       
             }
-            
-            
-
             Hide();
         }
 
@@ -128,10 +116,11 @@ namespace kursovoy
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from clients";
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
-            //Заполнение грида
+            
             dtRecord.Columns.Clear();
             dtRecord.Rows.Clear();
             dtRecord.Clear();
+
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
             seltab = "Клиенты";
@@ -144,10 +133,11 @@ namespace kursovoy
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from hotel";
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(command);
-            //Заполнение грида
+            
             dtRecord.Columns.Clear();
             dtRecord.Rows.Clear();
             dtRecord.Clear();
+
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
             seltab = "Отель";
@@ -155,43 +145,32 @@ namespace kursovoy
 
         private void button6_Click(object sender, EventArgs e)
         {
-
-
-            //dataGridView1.DataSource = null;
-            //dtRecord.Clear();
-            //
-            //dtRecord.Clear();
-            //dataGridView1.Update();
-            
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from position";
             sqlDataAdap.SelectCommand = command;
-            //Заполнение грида
-            label1.Text = command.CommandText.ToString();
 
             dtRecord.Rows.Clear();
             dtRecord.Columns.Clear();
             dtRecord.Clear();
+
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
 
             seltab = "Должность";
-            
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            dtRecord.Clear();
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from trip";
             sqlDataAdap.SelectCommand = command;
-            //Заполнение грида
+
             dtRecord.Columns.Clear();
             dtRecord.Rows.Clear();
             dtRecord.Clear();
+
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
             seltab = "Путёвка";
@@ -199,30 +178,22 @@ namespace kursovoy
 
         private void button8_Click(object sender, EventArgs e)
         {
-
-            //dataGridView1.DataSource = null;
-            //
-            //
-            
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = "Select * from worker";
             sqlDataAdap.SelectCommand = command;
-            //Заполнение грида
-            label1.Text = command.CommandText.ToString();
+
             dtRecord.Columns.Clear();
             dtRecord.Rows.Clear();
             dtRecord.Clear();
+
             sqlDataAdap.Fill(dtRecord);
             dataGridView1.DataSource = dtRecord;
-            
             seltab = "Работник";
-            
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            
             db.openConnection();
             var conn = db.getConnection();
             sqlDataAdap.SelectCommand = command;
@@ -231,24 +202,22 @@ namespace kursovoy
             builder.DataAdapter = sqlDataAdap;
             builder.GetUpdateCommand();
             sqlDataAdap.Update(dtRecord);
-
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-
             DataTable table = new DataTable();
-            
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
+
             int rowindex = dataGridView1.CurrentCell.RowIndex;
             int columnindex = dataGridView1.CurrentCell.ColumnIndex;
             int need = (int)dataGridView1.Rows[rowindex].Cells[0].Value;
+
             command.Parameters.Clear();
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = need;
-
-
             try
             {
                 switch (seltab)
@@ -286,13 +255,12 @@ namespace kursovoy
                 }
             }
             catch  {MessageBox.Show("Что-то пошло не так, выберите поле id и повторите снова"); 
-        
             }
         }
 
         private void adminScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
