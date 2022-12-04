@@ -21,29 +21,33 @@ namespace kursovoy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var dtpDate = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd"); //Formatted Date for MySql
-            String fioUser = fioText.Text;
-            String addressUser = addressText.Text;
-            String phoneUser = phoneText.Text;
-            String passportUser = passportText.Text;
+            try
+            {
+                var dtpDate = dateTimePicker1.Value.Date.ToString("yyyy-MM-dd"); //Formatted Date for MySql
+                String fioUser = fioText.Text;
+                String addressUser = addressText.Text;
+                String phoneUser = phoneText.Text;
+                String passportUser = passportText.Text;
 
-            DB db = new DB();
+                DB db = new DB();
 
-            DataTable table = new DataTable();
+                DataTable table = new DataTable();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("insert into clients values (null,@fio,@birthday,@address,@phone,@passport)", db.getConnection());
-            command.Parameters.Add("@address", MySqlDbType.VarChar).Value = addressUser;
-            command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = passportUser;
-            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = fioUser;
-            command.Parameters.Add("@phone", MySqlDbType.Int32).Value = phoneUser;
-            command.Parameters.Add("@birthday", MySqlDbType.Date).Value = dtpDate;
+                MySqlCommand command = new MySqlCommand("insert into clients values (null,@fio,@birthday,@address,@phone,@passport)", db.getConnection());
+                command.Parameters.Add("@address", MySqlDbType.VarChar).Value = addressUser;
+                command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = passportUser;
+                command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = fioUser;
+                command.Parameters.Add("@phone", MySqlDbType.Int32).Value = phoneUser;
+                command.Parameters.Add("@birthday", MySqlDbType.Date).Value = dtpDate;
 
-            
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
                 MessageBox.Show("Пользователь  зарегестрирован");
+            }
+            catch { MessageBox.Show("Проверьте введены ли все данные и повторите попытку снова");
+            }
 
             
         }
@@ -68,6 +72,11 @@ namespace kursovoy
         private void addClient_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void addClient_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

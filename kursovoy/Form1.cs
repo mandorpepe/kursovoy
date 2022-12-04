@@ -16,7 +16,6 @@ namespace kursovoy
     {
         public string ads;
         public string userEnt;
-        public string userEntId;
         public Авторизация()
         {
             InitializeComponent();
@@ -51,21 +50,21 @@ namespace kursovoy
             if (table.Rows.Count > 0)
             {
 
-                userEntId = table.Rows[0][0].ToString();
+                UserEntId.Value = (int)table.Rows[0][0];
 
                 if (loginUser == "admin")
                 {
                     UserEnt.Value = "adm";
                     adminScreen adm = new adminScreen();
                     adm.Show();
-                    label1.Text = userEntId;
+                    
                 }
                 else
                 {
                     UserEnt.Value = "Worker";
                     WorkerEntScr worker = new WorkerEntScr();
                     worker.Show();
-                    label1.Text = userEnt;
+                    
                 }
             }
             else {

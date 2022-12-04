@@ -25,6 +25,7 @@ namespace kursovoy
         DataSet dtRecord1 = new DataSet();
         MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter();
         MySqlCommandBuilder builder = new MySqlCommandBuilder();
+
         
         //Подключение файла с подключением к бд
         DB db = new DB();
@@ -37,7 +38,7 @@ namespace kursovoy
         private void adminScreen_Load(object sender, EventArgs e)
         {
             Авторизация ent = new Авторизация();
-            label1.Text = ent.userEntId;
+            label1.Text = UserEntId.Value.ToString();
 
         }
 
@@ -90,8 +91,8 @@ namespace kursovoy
                     addClient.Show();
                     break;
                 case "Отель":
-                    
-
+                    addHotel hotel = new addHotel();
+                    hotel.Show();
                     break;
                 case "Должность":
                     
@@ -237,14 +238,17 @@ namespace kursovoy
         {
 
             DataTable table = new DataTable();
-
+            
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             command.Connection = db.getConnection();
             command.CommandType = CommandType.Text;
             int rowindex = dataGridView1.CurrentCell.RowIndex;
             int columnindex = dataGridView1.CurrentCell.ColumnIndex;
-            int need = (int)dataGridView1.Rows[rowindex].Cells[columnindex].Value;
+            int need = (int)dataGridView1.Rows[rowindex].Cells[0].Value;
+            command.Parameters.Clear();
             command.Parameters.Add("@id", MySqlDbType.Int32).Value = need;
+
+
             try
             {
                 switch (seltab)
@@ -284,6 +288,11 @@ namespace kursovoy
             catch  {MessageBox.Show("Что-то пошло не так, выберите поле id и повторите снова"); 
         
             }
+        }
+
+        private void adminScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

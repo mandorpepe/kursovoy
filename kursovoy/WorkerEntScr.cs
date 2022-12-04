@@ -51,8 +51,13 @@ namespace kursovoy
             //adapter.Fill(table);
             //userEntId = table.Rows[0][0].ToString();
             Авторизация ent = new Авторизация();
-            String ddd = ent.userEntId;
-            label1.Text = UserEnt.Value;
+            
+            label1.Text = UserEntId.Value.ToString();
+        }
+
+        private void WorkerEntScr_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

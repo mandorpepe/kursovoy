@@ -19,6 +19,8 @@ namespace kursovoy
         {
             InitializeComponent();
         }
+        DB db = new DB();
+        public string posnam;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -28,9 +30,9 @@ namespace kursovoy
             String ageUser = ageText.Text;
             String phoneUser = phoneText.Text;
             String passportUser = passportText.Text;
-            int posUser = comboBox1.SelectedIndex + 1;
-            
-            DB db = new DB();
+            int posUser = Convert.ToInt32(db.getPosId(posnam));
+
+
 
             DataTable table = new DataTable();
 
@@ -66,7 +68,28 @@ namespace kursovoy
 
         private void addUser_Load(object sender, EventArgs e)
         {
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = db.getConnection();
+            db.openConnection();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Select position_name from position";
+            MySqlDataReader DR = command.ExecuteReader();
+            while (DR.Read())
+            {
+                comboBox1.Items.Add(DR[0]);
 
+            }
+            db.closeConnection();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            posnam = comboBox1.SelectedItem.ToString();
+        }
+
+        private void addUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

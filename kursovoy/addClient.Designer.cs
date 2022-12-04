@@ -45,7 +45,7 @@
             // fioText
             // 
             this.fioText.Location = new System.Drawing.Point(27, 112);
-            this.fioText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fioText.Margin = new System.Windows.Forms.Padding(4);
             this.fioText.Name = "fioText";
             this.fioText.Size = new System.Drawing.Size(132, 22);
             this.fioText.TabIndex = 0;
@@ -53,7 +53,7 @@
             // addressText
             // 
             this.addressText.Location = new System.Drawing.Point(216, 112);
-            this.addressText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addressText.Margin = new System.Windows.Forms.Padding(4);
             this.addressText.Name = "addressText";
             this.addressText.Size = new System.Drawing.Size(132, 22);
             this.addressText.TabIndex = 1;
@@ -61,7 +61,7 @@
             // phoneText
             // 
             this.phoneText.Location = new System.Drawing.Point(415, 112);
-            this.phoneText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneText.Margin = new System.Windows.Forms.Padding(4);
             this.phoneText.Name = "phoneText";
             this.phoneText.Size = new System.Drawing.Size(132, 22);
             this.phoneText.TabIndex = 2;
@@ -69,7 +69,7 @@
             // passportText
             // 
             this.passportText.Location = new System.Drawing.Point(27, 213);
-            this.passportText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passportText.Margin = new System.Windows.Forms.Padding(4);
             this.passportText.Name = "passportText";
             this.passportText.Size = new System.Drawing.Size(132, 22);
             this.passportText.TabIndex = 3;
@@ -77,7 +77,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(347, 213);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 5;
@@ -85,7 +85,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(513, 336);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 87);
             this.button1.TabIndex = 6;
@@ -151,7 +151,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(23, 336);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 87);
             this.button2.TabIndex = 12;
@@ -176,9 +176,10 @@
             this.Controls.Add(this.phoneText);
             this.Controls.Add(this.addressText);
             this.Controls.Add(this.fioText);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "addClient";
             this.Text = "addClient";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.addClient_FormClosed);
             this.Load += new System.EventHandler(this.addClient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

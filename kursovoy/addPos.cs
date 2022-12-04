@@ -39,16 +39,23 @@ namespace kursovoy
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
             MySqlCommand command = new MySqlCommand("insert into position values (null,@posname,@pay,@duty,@requir)", db.getConnection());
-            command.Parameters.Add("@posname", MySqlDbType.VarChar).Value = posUser;
-            command.Parameters.Add("@duty", MySqlDbType.VarChar).Value = dutyUser;
-            command.Parameters.Add("@pay", MySqlDbType.Float).Value = payUser;
-            command.Parameters.Add("@requir", MySqlDbType.VarChar).Value = requirUser;
+            try
+            {
+                command.Parameters.Add("@posname", MySqlDbType.VarChar).Value = posUser;
+                command.Parameters.Add("@duty", MySqlDbType.VarChar).Value = dutyUser;
+                command.Parameters.Add("@pay", MySqlDbType.Float).Value = payUser;
+                command.Parameters.Add("@requir", MySqlDbType.VarChar).Value = requirUser;
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                MessageBox.Show("Должность создана");
+            }
+            catch { MessageBox.Show("Проверьте введены ли все данные и повторите попытку снова"); }
+            }
 
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            MessageBox.Show("Должность создана");
-
+        private void addPos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
-}
+    }
+

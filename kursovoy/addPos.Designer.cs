@@ -157,6 +157,7 @@
             this.Controls.Add(this.posText);
             this.Name = "addPos";
             this.Text = "addPos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.addPos_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

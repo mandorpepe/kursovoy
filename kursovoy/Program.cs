@@ -23,4 +23,8 @@ namespace kursovoy
     {
         public static string Value { get; set; }
     }
+    static class UserEntId
+    {
+        public static int Value { get; set; }
+    }
 }
