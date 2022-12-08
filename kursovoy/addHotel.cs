@@ -50,9 +50,9 @@ namespace kursovoy
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            
+            try
+            {
                 MySqlCommand command = new MySqlCommand("insert into hotel values (null,@hName,@country,@city,@address,@stars)", db.getConnection());
-            
                 command.Parameters.Add("@hName", MySqlDbType.VarChar).Value = hname;
                 command.Parameters.Add("@country", MySqlDbType.VarChar).Value = country;
                 command.Parameters.Add("@city", MySqlDbType.VarChar).Value = city;
@@ -61,7 +61,7 @@ namespace kursovoy
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
                 MessageBox.Show("Отель создан");
-            
+            }catch{ MessageBox.Show("Проверьте введены ли все данные и повторите попытку снова"); }
         }
 
         private void addHotel_FormClosed(object sender, FormClosedEventArgs e)

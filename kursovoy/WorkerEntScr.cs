@@ -123,6 +123,12 @@ namespace kursovoy
                         adapter.Fill(table);
                         MessageBox.Show("Удалено успешно");
                         break;
+                    case "Путёвка":
+                        command.CommandText = "delete from trip where id_book = @id";
+                        adapter.SelectCommand = command;
+                        adapter.Fill(table);
+                        MessageBox.Show("Удалено успешно");
+                        break;
                 }
             }
             catch
@@ -141,6 +147,22 @@ namespace kursovoy
             builder.DataAdapter = sqlDataAdap;
             builder.GetUpdateCommand();
             sqlDataAdap.Update(dtRecord);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            command.Connection = db.getConnection();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Select * from trip";
+            sqlDataAdap.SelectCommand = command;
+
+            dtRecord.Columns.Clear();
+            dtRecord.Rows.Clear();
+            dtRecord.Clear();
+
+            sqlDataAdap.Fill(dtRecord);
+            dataGridView1.DataSource = dtRecord;
+            seltab = "Путёвка";
         }
     }
 }

@@ -37,21 +37,21 @@ namespace kursovoy
 
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
+            try
+            {
+                MySqlCommand command = new MySqlCommand("INSERT INTO `trip` (`id_book`, `date_start`, `date_end`, `payment`, `id_hotel`, `id_worker`, `id_clients`)values (null,@dstart,@dend,@pay,@hotel,@worker,@client)", db.getConnection());
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO `trip` (`id_book`, `date_start`, `date_end`, `payment`, `id_hotel`, `id_worker`, `id_clients`)values (null,@dstart,@dend,@pay,@hotel,@worker,@client)", db.getConnection());
-            
-            command.Parameters.Add("@pay", MySqlDbType.Float).Value = pay;
-            command.Parameters.Add("@worker", MySqlDbType.Int32).Value = UserEntId.Value;
-            command.Parameters.Add("@client", MySqlDbType.VarChar).Value = client;
-            command.Parameters.Add("@hotel", MySqlDbType.Int32).Value = hotel;
-            command.Parameters.Add("@dstart", MySqlDbType.Date).Value = dtpDate;
-            command.Parameters.Add("@dend", MySqlDbType.Date).Value = dtpDate2;
-
-            
+                command.Parameters.Add("@pay", MySqlDbType.Float).Value = pay;
+                command.Parameters.Add("@worker", MySqlDbType.Int32).Value = UserEntId.Value;
+                command.Parameters.Add("@client", MySqlDbType.VarChar).Value = client;
+                command.Parameters.Add("@hotel", MySqlDbType.Int32).Value = hotel;
+                command.Parameters.Add("@dstart", MySqlDbType.Date).Value = dtpDate;
+                command.Parameters.Add("@dend", MySqlDbType.Date).Value = dtpDate;
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
                 MessageBox.Show("Путёвка успешно создана");
-            
+            }
+            catch { MessageBox.Show("Проверьте введены ли все данные и повторите попытку снова"); }
                 
             
         }

@@ -37,8 +37,9 @@ namespace kursovoy
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("insert into worker values (null,@l,@p,@fio,@age,@phone,@passport,@pos)", db.getConnection());
+            try
+            {
+                MySqlCommand command = new MySqlCommand("insert into worker values (null,@l,@p,@fio,@age,@phone,@passport,@pos)", db.getConnection());
             command.Parameters.Add("@l", MySqlDbType.VarChar).Value = loginUser;
             command.Parameters.Add("@p", MySqlDbType.VarChar).Value = passUser;
             command.Parameters.Add("@age", MySqlDbType.Int16).Value = ageUser;
@@ -46,15 +47,13 @@ namespace kursovoy
             command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = fioUser;
             command.Parameters.Add("@phone", MySqlDbType.Int32).Value = phoneUser;
             command.Parameters.Add("@pos", MySqlDbType.Int32).Value = posUser;
-
-            try { 
             adapter.SelectCommand = command;
             adapter.Fill(table);
                 MessageBox.Show("Пользователь  зарегестрирован");
             }
             catch
             {
-                MessageBox.Show("Такой логин уже существует");
+                MessageBox.Show("Проверьте введены ли все данные, возможно такой логин уже существует, повторите попытку снова");
             }
         }
 

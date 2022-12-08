@@ -70,7 +70,7 @@ namespace kursovoy
                 }
             }
             else {
-                MessageBox.Show("Всё плохо");
+                MessageBox.Show("Неверно введены логин или пароль, попробуйте снова");
             }
         }
     }
